@@ -90,7 +90,7 @@ class LoadBalancerTest {
     fun testHealthCheckerForReactivatingProvider(){
         val providers = setOf(1,2)
         lb.register(providers)
-        lb.healthCheckDelay = 5000
+        lb.healthCheckDelay = 10000
         lb.providers.get(0).checkFlag = false
         lb.healthChecker()
         lb.providers.get(0).checkFlag = true
@@ -105,7 +105,7 @@ class LoadBalancerTest {
     @Test
     fun testHealthCheckerEveryOneSec(){
         val providers = setOf(1,2)
-        lb.healthCheckDelay = 5000
+        lb.healthCheckDelay = 10000
         lb.register(providers)
         lb.providers.get(0).checkFlag = false
         lb.healthChecker()
