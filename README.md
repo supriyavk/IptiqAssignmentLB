@@ -49,12 +49,14 @@ Following operations can be performed:
      Returns: Unit
    ```
 4. Health check on each provider when they are alive or enabled and enable it only after 2 consecutive success check.
+
+   Once the providers are registered, health check is performed every 1 sec.
    ```
      fun healthChecker(): Unit
      Parameters:
      Returns: Unit
    ```
-5. healthChecker() - Heartbeat checker performs a check on each provider and enable .
+
 In case an exception occurs, custom exceptions are thrown.
 
 
@@ -64,4 +66,5 @@ In case an exception occurs, custom exceptions are thrown.
 Pre-requisite
 - JDK 18
 - Gradle
+
 

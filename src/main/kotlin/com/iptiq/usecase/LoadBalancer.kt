@@ -12,7 +12,7 @@ abstract class LoadBalancer {
     var providers: List<Provider> = emptyList()
     //Number of request processed by each provider
     val requestPerProvider: Int = 2
-    //parallel number of request count
+    //parallel number of request count.
     val requestCount = AtomicInteger()
     var healthCheckDelay: Long = 0
     var healthCheckPeriod: Long = 1000
