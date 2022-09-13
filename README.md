@@ -67,4 +67,24 @@ Pre-requisite
 - JDK 18
 - Gradle
 
+Run below commands from the checkout location.
+
+Command
+
+`
+    cd IptiqAssignmentLB
+`
+
+build
+
+`
+    ./gradlew clean build
+`
+
+Run test
+
+`
+    ./gradlew test
+`
+
 
