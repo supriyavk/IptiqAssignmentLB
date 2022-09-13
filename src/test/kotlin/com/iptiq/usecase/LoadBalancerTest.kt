@@ -18,7 +18,6 @@ class LoadBalancerTest {
         lb = RandomLoadBalancer()
     }
 
-    // Test for register method
     @Test
     fun testGetWithoutRegisteredList(){
         assertFailsWith<ProviderNotFoundException> { lb.get() }
@@ -91,7 +90,7 @@ class LoadBalancerTest {
     fun testHealthCheckerForReactivatingProvider(){
         val providers = setOf(1,2)
         lb.register(providers)
-        lb.healthCheckPeriod = 5000
+        lb.healthCheckDelay = 5000
         lb.providers.get(0).checkFlag = false
         lb.healthChecker()
         lb.providers.get(0).checkFlag = true

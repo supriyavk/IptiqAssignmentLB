@@ -1,11 +1,11 @@
 package com.iptiq.usecase
 
-import com.iptiq.domain.Provider
-import com.iptiq.domain.exception.ProviderNotFoundException
 import com.iptiq.domain.exception.ProviderUnavailableException
 import org.junit.jupiter.api.Test
-import java.lang.IllegalArgumentException
-import kotlin.test.*
+import kotlin.test.BeforeTest
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNotNull
 
 class RandomLoadBalancerTest {
     lateinit var randomLB: LoadBalancer
@@ -30,7 +30,6 @@ class RandomLoadBalancerTest {
         assertFailsWith<ProviderUnavailableException> { randomLB.get() }
     }
 
-
     @Test
     fun testGetProviderExceptionForIsEnabledFalse() {
         randomLB.register(setOf(1,2))
@@ -38,7 +37,6 @@ class RandomLoadBalancerTest {
         randomLB.setIsEnabled(2, false)
         assertFailsWith<ProviderUnavailableException> { randomLB.get() }
     }
-
     @Test
     fun testGetProviderCheckOnlyActiveInstance() {
         randomLB.register(setOf(1,2,3))
@@ -47,6 +45,4 @@ class RandomLoadBalancerTest {
         assertEquals("1",randomLB.get())
         assertEquals("1",randomLB.get())
     }
-
-
 }
